@@ -10,9 +10,25 @@ module.exports.listen = function(server){
     
     io = socketio.listen(server);
 
-    io.on('connection', function(client) {       
+    io.on('connection', function(client) {    
+        
+        console.log("connecting" + client.id);        
+        
+        client.on('subscribe', function(room) { 
+            console.log('joining room', room);
+            client.join(room); 
+        })
 
-        console.log("connecting" + client.id);
+        client.on('unsubscribe', function(room) {  
+            console.log('leaving room', room);
+            client.leave(room); 
+        })
+
+        client.on('send', function(data) {
+            console.log('sending message');
+            io.sockets.in(data.room).emit('message', data);
+        });
+
         
 
         //on disconnect of application

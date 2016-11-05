@@ -13,10 +13,10 @@ app.config(['$routeProvider', function($routeProvider) {
     when('/', {
       templateUrl: 'templates/start.html'
     }).
-    when('/test', {
-      templateUrl: 'templates/test.html',
-      controller:  'TestController',
-      controllerAs: 'login'
+    when('/room', {
+      templateUrl: 'templates/room.html',
+      controller:  'RoomController',
+      controllerAs: 'Room'
     }).
     otherwise({
       redirectTo: '/'
