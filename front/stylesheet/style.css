@@ -26,7 +26,16 @@ html, body {
     float: left;
     border-right: 2px solid;
 }
+.content {
+    margin: 0% 5% 5% 5%;
+    width: 90%;
+    height: 60%;
+    background-color: azure;
+    float: left;
+    border: 1px solid black;
+}
 .headers {
     font-family: futura;
     text-align-last: center;
+    position:static;
 }
