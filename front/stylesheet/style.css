@@ -1,0 +1,32 @@
+html, body {
+    height: 100%;
+}
+
+#column1 {
+    width: 25%;
+    height: 100%;
+    float: left;
+    border-right: 2px solid;
+}
+#column2 {
+    width: 25%;
+    height: 100%;
+    float: left;
+    border-right: 2px solid;
+}
+#column3 {
+    width: 25%;
+    height: 100%;
+    float: left;
+    border-right: 2px solid;
+}
+#column4 {
+    width: 25%;
+    height: 100%;
+    float: left;
+    border-right: 2px solid;
+}
+.headers {
+    font-family: futura;
+    text-align-last: center;
+}
