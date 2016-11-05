@@ -17,6 +17,6 @@
 </div>
 <div id="column4"><h2 class="headers">Chat</h2>
     <div class="content">
-
-    </div>  
+        <li class="message" ng-repeat="x in roomData.chats | orderBy : 'time'">{{x.from}} : {{x.message}}</li>
+    </div> 
 </div>
