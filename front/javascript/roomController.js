@@ -9,7 +9,8 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location, 
             "chat" : {
                 "time" : new Date(),
                 "from" : "petr",
-                "message" : message
+                "message" : message,
+                "pinned" : "false"
             }
         }
         updateScroll();
@@ -28,8 +29,38 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location, 
         if (x.pinned == "true") {
             event.target.src="../img/arrow-right.png";
             x.pinned = "false";
+            var newChat = {
+                "_id" : $scope.roomData._id,
+                "chat" : {
+                    "time" : x.time,
+                    "from" : x.time,
+                    "message" : x.message,
+                    "pinned" : "false"
+                }
+            }
+            $http.post("/api/rooms/updateChat", newChat).success(function(data){
+                //do nothing for now
+        }).error(function(err){
+            //TODO
+            alert(err);
+        });
             console.log("unpin");
         } else {
+            var newChat = {
+                "_id" : $scope.roomData._id,
+                "chat" : {
+                    "time" : x.time,
+                    "from" : x.time,
+                    "message" : x.message,
+                    "pinned" : "true"
+                }
+            }
+            $http.post("/api/rooms/updateChat", newChat).success(function(data){
+                //do nothing for now
+            }).error(function(err){
+            //TODO
+            alert(err);
+        });
             event.target.src="../img/arrow-left.png";
             x.pinned = "true";
         }
