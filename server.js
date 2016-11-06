@@ -58,6 +58,11 @@ app.get('/color/:color', function(req, res, next) {
     });   
 });
 
+app.get('/allUsers', function(req, res, next) {
+    var players = require('./sockets').getUsers(); 
+    res.json(players);
+});
+
 // catch 404 and forward to error handler
 /*app.use(function(req, res, next) {
   var err = new Error('Not Found');

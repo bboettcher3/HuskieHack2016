@@ -48,8 +48,29 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location, 
         $http.get("/api/rooms").success(function(data){
             $scope.roomData = data[0];
         });
-        //$scope.roomData = {"_id":"581e517994e0802cf333c7b2","links":[],"files":[],"pictures":[],"chats":[{"message":"Hey Petr!","from":"bbottecher","time":3},{"message":"you there?","from":"bboettcher","time":2}],"people":["bboettcher","petr"]};
+          
+        socket.emit("enteredRoom", {room: USER.roomID, username : USER.username});
     };
+    
+    $scope.currentUsers = []; //initial
+    socket.on("updateRoomUser", function(data) {
+       $scope.currentUsers = data.users;
+    });
+    socket.on("addRoomUser", function(data) {
+        console.log(data);
+        $scope.currentUsers.push(data.username);
+        $scope.$apply();    
+    });
+    socket.on("removeRoomUser", function(data) {
+        var userIndex;
+        $scope.currentUsers.forEach(function(element, index){
+            if (element.username == data.username) {
+                userIndex = index;
+            }
+        });
+
+        $scope.currentUsers.splice(userIndex, 1)
+    });
     
    $scope.scopeTest = "ScopeTest"    
   
