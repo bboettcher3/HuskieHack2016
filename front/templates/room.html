@@ -22,12 +22,12 @@
     <div class="content">
        <div id="messageBoard">
 		<li class="pinned" ng-repeat="x in roomData.chats | filter: {'pinned' : 'true'}: true | orderBy : 'time.getTime()'">{{x.from}} : {{x.message}}</li>
-        </div>    
+        </div>   
 	</div>	
 </div>
 <div id="column3"><h2 class="headers">Files</h2>
     <div class="content">
-        <div id="fileBoard">
+        <div  id="fileBoard">
             <li ng-repeat="x in roomData.files">{{x}}</li>
         </div>
     </div>
@@ -46,7 +46,7 @@
     <div class="content">
         
         <hr />
-        <div id="messageBoard">
+        <div  id="messageBoard">
             <li class="message" ng-repeat="x in roomData.chats | filter: query | orderBy : 'time.getTime()'"><img ng-click="pinMessage($event, x)" class="rightArrows" src="../img/arrow-right.png"><span ng-class="setTextColor()">{{x.from}}</span> : {{x.message}}</li>
         </div>
     </div> 
