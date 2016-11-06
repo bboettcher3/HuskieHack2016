@@ -7,6 +7,7 @@
   var router = express.Router();
 
   router.get('/', controller.getAll);
+  router.get('/byUser/:user', controller.getByUser);
 //  router.post('/start', controller.start);
 //  router.post('/:id/:count', controller.update);
 //  router.delete('/:id', controller.delete);

@@ -11,7 +11,8 @@ app.config(['$routeProvider', function($routeProvider) {
     
   $routeProvider.
     when('/', {
-      templateUrl: 'templates/start.html'
+      templateUrl: 'templates/start.html',
+      controller:  'StartController'
     }).
     when('/room', {
       templateUrl: 'templates/room.html',

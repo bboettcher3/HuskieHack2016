@@ -1,3 +1,12 @@
 <div>
-    Start Page - no controller attached
+    <span ng-show="!pickedUser">
+        <h1>Who are you?</h1>
+        <button ng-repeat="user in users" ng-click="pickUser(user)">{{user.username}}</button>
+    </span>
+    <span ng-show="pickedUser">
+        <h1>Select Room</h1>
+        <button ng-repeat="room in rooms">{{room.people}}</button>
+
+    </span>
+    
 </div>
