@@ -1,43 +1,8 @@
-
 html, body, main {
    height:100%;
+   background: url("../img/bck_sea.jpeg") repeat;
    }
-@-webkit-keyframes test {
-  0% {
-    background-image: url(../img/bck_sea.jpeg);
-  }
-  20% {
-    background-image: url(../img/bck_sea.jpeg);
-  }
-  40% {
-    background-image: url(../img/bck_sea.jpeg);
-  }
-  60% {
-    background-image: url(../img/bck_sea.jpeg);
-  }
-  80% {
-    background-image: url(../img/bck_sea.jpeg);
-  }
-  100% {
-    background-image: url(../img/bck_sea.jpeg);
-  }
-}
 
-html {
-   float: down;
-  -webkit-animation-name: test;
-  -webkit-animation-duration: 10s;
-  -webkit-animation-iteration-count: infinite;
-}
-
-
-#topHeader {
-	color: black;
-	position: fixed;
-    bottom: 10;
-    right: 10%;
-    width: 10%;
-}
  @keyframes example {
     0%   {background-color: #2E8B57;}
     20%  {background-color: yellow;}
@@ -46,9 +11,6 @@ html {
 	80% {background-color: #4c4c4c;}
 	
 }
-
-
-
 
 #column1 {
     width: 25%;
