@@ -52,7 +52,23 @@
         });
      };
  
-
+    module.exports.updateFiles = function(req, res) {
+        var id = req.body._id;
+        var newFile = req.body.file;         
+        
+        // Need to do this so mongo doesn't think we're trying to edit the _id
+  
+        Rooms.findByIdAndUpdate(id, 
+          {$push: {"files": newFile}},
+          {safe: true, upsert: true},
+          function(err, post) {
+          if (err) {
+                console.error(err);
+                return res.status(500).send(err);
+          }  
+          res.json(post);
+        });
+     };
     
     
 })();

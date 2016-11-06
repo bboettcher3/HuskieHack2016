@@ -25,6 +25,24 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location) 
         document.getElementById("textBoxChat").value = "";
     }
     
+    $scope.sendFile = function() {
+        var file = document.getElementById("newFile").value;
+        var filename = file.replace(/^.*[\\\/]/, '');
+        document.getElementById("newFile").value = "";
+        var newFile = {
+            "_id" : $scope.roomData._id,
+            "filename" : filename,
+            "file" : file
+        }
+        console.log(filename);
+        $http.post("/api/rooms/updateFiles", newFile).success(function(data){
+            $scope.roomData.files.push(newFile);
+        }).error(function(err){
+            //TODO
+            alert(err);
+        });
+    }
+    
     updateScroll = function() {
         setTimeout(function() {
         var element = document.getElementById("messageBoard");
@@ -32,10 +50,6 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location) 
         }, 200);
     }
     
-    $scope.sendFile = function() {
-        var message = document.getElementById("newFile").value;
-        document.getElementById("newFile").value = "";
-    }
     // function calls submit if enter is hit while text is being entered
     $("#textBoxChat").keypress(function(event) {
     if (event.which == 13) {
