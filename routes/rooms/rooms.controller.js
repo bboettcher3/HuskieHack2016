@@ -8,30 +8,39 @@
     
     //grab all for display
     module.exports.getAll = function(req, res) { 
-        
         Rooms.find({}, function (err, post) {
-            console.log(post);
-            console.log("before");
             if (err) {
                 console.error(err);
                 return res.status(500).send(err);
             }
             res.json(post);
         });
-        
-        console.log("after");
     };
     
-    //gets all the rooms teh user is in
-    module.exports.getByUser = function(req, res) { 
-        Rooms.find({people : req.params.user }, function (err, post) {
-            if (err) {
+    //update chat array
+    //Params:
+        // _id
+            // id of document
+        // chat 
+            // new object of chat that gets pushed
+     module.exports.updateChat = function(req, res) {
+        var id = req.body._id;
+        var newChat = req.body.chat;         
+        
+        // Need to do this so mongo doesn't think we're trying to edit the _id
+  
+        Rooms.findByIdAndUpdate(id, 
+          {$push: {"chats": newChat}},
+          {safe: true, upsert: true},
+          function(err, post) {
+          if (err) {
                 console.error(err);
                 return res.status(500).send(err);
-            }
-            res.json(post);
+          }  
+          res.json(post);
         });
-    };
+     };
+ 
 
     
     
