@@ -6,8 +6,10 @@
 </div>
 <div id="column2"><h2 class="headers">Pinned Messages</h2>
     <div class="content">
-        <li class="pinned" ng-repeat="x in roomData.chats | filter: {'pinned' : 'true'}: true | orderBy : 'time.getTime()'">{{x.from}} : {{x.message}}</li>
-    </div>  
+       <div id="messageBoard">
+		<li class="pinned" ng-repeat="x in roomData.chats | filter: {'pinned' : 'true'}: true | orderBy : 'time.getTime()'">{{x.from}} : {{x.message}}</li>
+        </div>    
+	</div>	
 </div>
 <div id="column3"><h2 class="headers">Files</h2>
     <div class="content">
