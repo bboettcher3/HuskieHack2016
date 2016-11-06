@@ -1,4 +1,18 @@
-<div id="currentUsers">{{currentUsers}}</div>
+
+<div class="row1"><span><h2 class="headers">Users Online</h2>
+    
+    <div id="currentUsers">{{currentUsers}}</div>
+    
+    
+    
+    
+    </span></div>
+<div class="row2"><span><h2 class="headers">SEARCH</h2>
+     
+    <img id="searchIcon" src="../img/searchIcon.png" />
+        <input type="text" id="searchChat" placeholder="search messages..." ng-model="query[queryBy]">
+        </span>
+</div>
 <div id="column1"><h2 class="headers">Photos</h2>
     <div class="content">
         
@@ -30,8 +44,7 @@
 </div>
 <div id="column4"><h2 class="headers">Chat</h2>
     <div class="content">
-        <img id="searchIcon" src="../img/searchIcon.png" />
-        <input type="text" id="searchChat" placeholder="search messages..." ng-model="query[queryBy]">
+        
         <hr />
         <div id="messageBoard">
             <li class="message" ng-repeat="x in roomData.chats | filter: query | orderBy : 'time.getTime()'"><img ng-click="pinMessage($event, x)" class="rightArrows" src="../img/arrow-right.png"><span ng-class="setTextColor()">{{x.from}}</span> : {{x.message}}</li>

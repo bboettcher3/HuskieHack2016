@@ -12,6 +12,19 @@ html, body, main {
 	
  }
 
+.row1 span{
+    width: 50%;
+    height: 100px ;
+    float: left;
+    column-fill: balance;
+}
+
+.row2 span{
+    width: 50%;
+    height: 100px;
+    float: right;
+}
+
 #column1 {
     width: 25%;
     height: 100%;
@@ -52,6 +65,7 @@ html, body, main {
     animation-duration: 25s;
 	animation-iteration-count: infinite;
 }
+
 #textBoxChat {
     margin-left: 5%;
     float: left;
