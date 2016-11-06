@@ -29,46 +29,25 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location, 
     
     $scope.pinMessage = function(event, x) {
         if (x.pinned == "true") {
-            event.target.src="../img/arrow-right.png";
             x.pinned = "false";
-            var newChat = {
-                "_id" : $scope.roomData._id,
-                "chat" : {
-                    "time" : x.time,
-                    "from" : x.time,
-                    "message" : x.message,
-                    "pinned" : "false"
-                }
-            }
-            $http.post("/api/rooms/updateChat", newChat).success(function(data){
+            event.target.src="../img/arrow-right.png";
+            $http.post("/api/rooms/updateTextPin", {_id : $scope.roomData._id, chats : $scope.roomData.chats}).success(function(data){
                 //do nothing for now
-        }).error(function(err){
+            }).error(function(err){
             //TODO
             alert(err);
-        });
-            console.log("unpin");
+            });
         } else {
-            var newChat = {
-                "_id" : $scope.roomData._id,
-                "chat" : {
-                    "time" : x.time,
-                    "from" : x.time,
-                    "message" : x.message,
-                    "pinned" : "true"
-                }
-            }
-            $http.post("/api/rooms/updateChat", newChat).success(function(data){
+            x.pinned = "true";
+            $http.post("/api/rooms/updateTextPin", {_id : $scope.roomData._id, chats : $scope.roomData.chats}).success(function(data){
                 //do nothing for now
             }).error(function(err){
             //TODO
             alert(err);
         });
             event.target.src="../img/arrow-left.png";
-            x.pinned = "true";
         }
     }
-
-    
     
     $scope.sendFile = function() {
         var file = document.getElementById("newFile").value;
@@ -79,7 +58,6 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location, 
             "filename" : filename,
             "file" : file
         }
-        console.log(filename);
         $http.post("/api/rooms/updateFiles", newFile).success(function(data){  
         }).error(function(err){
             //TODO
