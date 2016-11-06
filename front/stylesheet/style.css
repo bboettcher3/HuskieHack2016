@@ -104,6 +104,9 @@ html, body, main {
 	border-right-color: black;
 
 }
+.rightArrows {
+    width: 5%;
+}
 .headers {
     text-align-last: center;
     position:static;

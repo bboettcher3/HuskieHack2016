@@ -23,6 +23,17 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location, 
         document.getElementById("textBoxChat").value = "";
     }
     
+    $scope.pinMessage = function(event, x) {
+        if (x.pinned == "true") {
+            event.target.src="../img/arrow-right.png";
+            x.pinned = "false";
+            console.log("unpin");
+        } else {
+            event.target.src="../img/arrow-left.png";
+            x.pinned = "true";
+        }
+    }
+    
     $scope.sendFile = function() {
         var file = document.getElementById("newFile").value;
         var filename = file.replace(/^.*[\\\/]/, '');
