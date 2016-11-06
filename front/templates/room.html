@@ -14,8 +14,10 @@
     <div class="content">
         
     </div>
-    <h4 style="margin-left: 5%;">Upload a file: </h4>
-    <input  style="margin-left: 5%; float: left;"type="file">
+    <div id="uploadFile">
+        <input id="newFile" style="width: 70%; float: left;" type="file">
+        <input style="width: 20%; display: inline-block;"type="submit" ng-click="sendFile()">
+    </div>
 </div>
 <div id="column4"><h2 class="headers">Chat</h2>
     <div class="content">
