@@ -1,11 +1,11 @@
 html, body, main {
    height:100%;
-   background: url("../img/bck_sea.jpeg") repeat;
-   }
+<<<<<<< HEAD
 
+}
  @keyframes example {
     0%   {background-color: #2E8B57;}
-    20%  {background-color: yellow;}
+    20%  {background-color: #9ACD32;}
     40%  {background-color: #CDCDCD;}
 	65%  {background-color: #1E90FF;}
 	80% {background-color: #4c4c4c;}
@@ -16,36 +16,14 @@ html, body, main {
     width: 25%;
     height: 100%;
     float: left;
-	opacity: 0.3;
+	opacity: 0.5;
     border-right: 2px solid #4169E1;
     background-color: #B22222;
     animation-name: example;
-    animation-duration: 12s;
+    animation-duration: 25s;
 	animation-iteration-count: infinite;
 }
 #column2 {
-    width: 25%;
-    height: 100%;
-    float: left;
-	opacity: 0.4;
-    border-right: 2px solid #4169E1;
-	background-color: #B22222;
-    animation-name: example;
-    animation-duration: 12s;
-	animation-iteration-count: infinite;
-}
-#column3 {
-    width: 25%;
-    height: 100%;
-    float: left;
-	opacity: 0.5;
-    border-right: 2px solid #4169E1;
-	background-color: #B22222;
-    animation-name: example;
-    animation-duration: 12s;
-	animation-iteration-count: infinite;
-}
-#column4 {
     width: 25%;
     height: 100%;
     float: left;
@@ -53,13 +31,34 @@ html, body, main {
     border-right: 2px solid #4169E1;
 	background-color: #B22222;
     animation-name: example;
-    animation-duration: 12s;
+    animation-duration: 25s;
+	animation-iteration-count: infinite;
+}
+#column3 {
+    width: 25%;
+    height: 100%;
+    float: left;
+	opacity: 0.7;
+    border-right: 2px solid #4169E1;
+	background-color: #B22222;
+    animation-name: example;
+    animation-duration: 25s;
+	animation-iteration-count: infinite;
+}
+#column4 {
+    width: 25%;
+    height: 100%;
+    float: left;
+	opacity: 0.9;
+    border-right: 2px solid #4169E1;
+	background-color: #B22222;
+    animation-name: example;
+    animation-duration: 25s;
 	animation-iteration-count: infinite;
 }
 #textBoxChat {
     margin-left: 5%;
     float: left;
-	color:  #000000;
 }
 #uploadFile {
     float: left;
@@ -79,6 +78,8 @@ html, body, main {
 #messageBoard {
     overflow-y: scroll;
     max-height: 80%;
+	background-color: azure;
+
 }
 .content {
     margin: 0% 5% 5% 5%;
