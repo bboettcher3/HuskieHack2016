@@ -1,12 +1,12 @@
 <div id="currentUsers">{{currentUsers}}</div>
-<div id="column1"><h2 class="headers">Project Flow</h2>
+<div id="column1"><h2 class="headers">Photos</h2>
     <div class="content">
         
     </div>  
 </div>
 <div id="column2"><h2 class="headers">Pinned Messages</h2>
     <div class="content">
-
+        <li class="pinned" ng-repeat="x in roomData.chats | filter: {'pinned' : 'true'}: true | orderBy : 'time.getTime()'">{{x.from}} : {{x.message}}</li>
     </div>  
 </div>
 <div id="column3"><h2 class="headers">Files</h2>
@@ -26,7 +26,7 @@
         <input type="text" id="searchChat" placeholder="search messages..." ng-model="query[queryBy]">
         <hr />
         <div id="messageBoard">
-            <li class="message" ng-repeat="x in roomData.chats | filter: query | orderBy : 'time.getTime()'">{{x.from}} : {{x.message}}</li>
+            <li class="message" ng-repeat="x in roomData.chats | filter: query | orderBy : 'time.getTime()'"><img ng-click="pinMessage($event, x)" class="rightArrows" src="../img/arrow-right.png">{{x.from}} : {{x.message}}</li>
         </div>
     </div> 
     <input type="text" id="textBoxChat" name="message" placeholder="type a message...">
