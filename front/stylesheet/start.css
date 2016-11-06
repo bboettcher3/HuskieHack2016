@@ -1,31 +1,28 @@
 html, body, main {
    height:100%;
-    width:100%;
-   
+    width:100%;   
 }
 body {	
-background: url(../img/BCG.jpg);	
+   background: url(../img/startScreenBackground.jpg);
 }
 
 .Start h1{
     font-family: serif;
     color: white;
     font-size: 96px;
-    border-bottom-color: white;
-    border-bottom-style: double;
-    border-bottom-width: thick;
-    padding-top: 5%;
-    padding-bottom: 3%;   
+    
 }
 .Start h2{
     color:white;
     font-family: serif;
     font-size: 48px;
-    padding-top: 3%;
-    padding-bottom: 1%;
 }
 .pickRoom h1 {
     font-family: serif;
     color: white;
     font-size: 48px;
+}
+
+.pickRoom button {
+    
 }

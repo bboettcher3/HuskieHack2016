@@ -70,5 +70,25 @@
         });
      };
     
+    // _id
+        // id of document
+    // chats[]
+        // new object of chat that gets pushed
+     module.exports.updateTextPin = function(req, res) {
+        var id = req.body._id;
+        var chats = req.body.chats;      
+        
+        // Need to do this so mongo doesn't think we're trying to edit the _id  
+        Rooms.findOneAndUpdate({_id : id}, 
+          {$set: {"chats": chats}},
+          function(err, post) {
+          if (err) {
+                console.error(err);
+                return res.status(500).send(err);
+          }  
+          res.json(post);
+        });
+     };
+        
     
 })();
