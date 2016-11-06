@@ -83,8 +83,11 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location, 
 
         $scope.currentUsers.splice(userIndex, 1)
     });
-    
-   $scope.scopeTest = "ScopeTest"    
+    var colorText = ["red","blue","aqua","pink","violet","yellow","orange","green","gold","gray"];
+   $scope.setTextColor = function(index){
+	
+   }
+   
   
     
 init();

@@ -1,7 +1,10 @@
 html, body, main {
    height:100%;
     width:100%;
-   background: url(../img/white_trees.png);
+   
+}
+body {	
+background: url(../img/BCG.jpg);	
 }
 
 .Start h1{

@@ -3,22 +3,15 @@ html, body, main {
 
      
    }
- /*@keyframes example {
+ @keyframes example {
     10%   {background-color: #2E8B57;}
     30%  {background-color: #9ACD32;}
     50%  {background-color: #CDCDCD;}
 	75%  {background-color: #1E90FF;}
-	95% {background-color: #4c4c4c;}*/
+	95% {background-color: #4c4c4c;}
 	
  }
 
- @keyframes borders {
-    10%  {border-right-color: #2E8B57;}
-    30%  {border-right-color: #9ACD32;}
-    50%  {border-right-color: #CDCDCD;}
-	75%  {border-right-color: #1E90FF;}
-	95% {border-right-color: #4c4c4c;}
- }
 #column1 {
     width: 25%;
     height: 100%;
@@ -98,11 +91,6 @@ html, body, main {
     border: 2px;
 	text-shadow: 1px 1px 1px #000000;
 	box-shadow: 10px 10px 10px #000000;
-	/*animation-name: borders;
-    animation-duration: 25s;
-	animation-iteration-count: infinite;*/
-	border-right-color: black;
-
 }
 .headers {
     text-align-last: center;
@@ -118,4 +106,17 @@ html, body, main {
     padding-left: 5%;
     padding-top: 2%;
 	color: #000000;
+	
 }
+
+.red{color: red;}
+.blue{color: blue;}
+.aqua{color: aqua;}
+.pink{color: pink;}
+.violet{color: violet;}
+.yellow{color: yellow;}
+.green{color: green;}
+.orange{color: orange;}
+.gold{color: gold;}
+.gray{color: gray;}
+
