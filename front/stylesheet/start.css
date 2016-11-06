@@ -11,7 +11,14 @@ html, body, main {
     
 }
 .Start h2{
-    color:blue;
+    color:white;
+    font-family: serif;
+    font-size: 48px;
+}
+.pickRoom h1 {
+    font-family: serif;
+    color: white;
+    font-size: 48px;
 }
 
 .pickRoom button {

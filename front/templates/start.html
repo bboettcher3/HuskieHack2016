@@ -1,16 +1,18 @@
 <div class="Start">
-    
+    <div class="text-center">
     <span ng-show="!pickedUser">
-        <h1 class="text-center"> Welcome to our Page </h1>
-        <h2>Who are you?</h2>
-        <button ng-repeat="user in users" ng-click="pickUser(user)">{{user.username}}</button>
+        <h1 class="text-center"> ~Welcome to our Page~ </h1>
+        <h2 class="text-center">Choose your Username</h2>
+        <button ng-repeat="user in users" ng-click="pickUser(user)" type="button" class="btn btn-primary">{{user.username}}</button>
     </span>
+        </div>
     <div class="pickRoom">
+        <div class="text-center">
     <span ng-show="pickedUser">
         <h1>Select Room</h1>
-        <!--<button type="button" class="btn brn-link"></button>-->
         <button ng-repeat="room in rooms" type="button" class="btn btn-primary">{{room.roommates}}</button>
 
     </span>
     </div>
+        </div>   
 </div>
