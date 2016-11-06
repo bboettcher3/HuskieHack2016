@@ -3,8 +3,24 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location) 
 //    var socket = io.connect(); 
     $scope.sendMessage = function() {
         var message = document.getElementById("textBoxChat").value;
+        var newChat = {
+            "_id" : $scope.roomData._id,
+            "chat" : {
+                "time" : new Date(),
+                "from" : "petr",
+                "message" : message
+            }
+        }
+        $http.post("/api/rooms/updateChat", newChat).success(function(data){
+            $scope.roomData.chats.push(newChat.chat);
+            $scope.roomData.chats.forEach(function(element){element.time = new Date(element.time);})
+            console.log($scope.roomData.chats);
+            //$scope.roomData.chats.sort(function(a, b) { return b.time - a.time; });
+        }).error(function(err){
+            //TODO
+            alert(err);
+        });
         document.getElementById("textBoxChat").value = "";
-        console.log(message);
     }
     $scope.sendFile = function() {
         var message = document.getElementById("newFile").value;
@@ -16,6 +32,17 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location) 
         event.preventDefault();
         $scope.sendMessage();
     }
+    });
+    // function that filters messages
+    $("#searchChat").keypress(function(event) {
+        event.preventDefault();
+        var message = document.getElementById("searchChat").value;
+        for (var i = 0; i < $scope.roomData.chats.length; i++) {
+            for (message in chats[i].message) {
+                console.log(message);
+            }
+        }
+        //console.log("test");
     });
     
     var init = function () {
