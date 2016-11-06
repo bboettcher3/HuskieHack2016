@@ -76,6 +76,10 @@ html, body, main {
     width: 10%;
     float: left;
 }
+#messageBoard {
+    overflow-y: scroll;
+    max-height: 80%;
+}
 .content {
     margin: 0% 5% 5% 5%;
     width: 90%;

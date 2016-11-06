@@ -24,4 +24,9 @@ app.config(['$routeProvider', function($routeProvider) {
     });
 }]);
 
+app.service('USER', function(){
+    this.username;
+    this.roomID;
+});
+
 
