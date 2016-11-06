@@ -13,6 +13,7 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location, 
             }
         }
         updateScroll();
+        checkifURL(message);
         $http.post("/api/rooms/updateChat", newChat).success(function(data){
             $scope.roomData.chats.push(newChat.chat);
             $scope.roomData.chats.forEach(function(element){element.time = new Date(element.time);})
@@ -33,6 +34,16 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location, 
             x.pinned = "true";
         }
     }
+
+    function checkIfURL(textLine) {      
+        var regex = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/; 
+             if(!regex.test(str)) {
+                 console.log("Not a website");
+             } else {
+                 console.log("works great!!!!!!")
+             }
+         }
+
     
     $scope.sendFile = function() {
         var file = document.getElementById("newFile").value;
