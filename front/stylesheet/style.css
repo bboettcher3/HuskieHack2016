@@ -1,8 +1,8 @@
 html, body, main {
    height:100%;
-<<<<<<< HEAD
 
-}
+     
+   }
  @keyframes example {
     10%   {background-color: #2E8B57;}
     30%  {background-color: #9ACD32;}
@@ -88,12 +88,16 @@ html, body, main {
     float: left;
     border: 2px;
 	text-shadow: 1px 1px 1px #000000;
+	box-shadow: 10px 10px 10px #000000;
 }
 .headers {
-    font-family: futura;
     text-align-last: center;
     position:static;
-
+	font-family: 'Verdana';
+    opacity: 1;
+	text-shadow: 1px 1px 1px #000000;
+	box-shadow: -5px 5px 5px #000000;
+	background-color: #FFFFFF;
 }
 .message {
     list-style-type: none;
