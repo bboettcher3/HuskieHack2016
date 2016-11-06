@@ -16,9 +16,12 @@
     <script src="library/angular.js" type="text/javascript"></script> 
     <script src="library/angular-route.min.js" type="text/javascript"></script> 
     
-     <script src="javascript/app.js" type="text/javascript"></script> 
-     <script src="javascript/roomController.js" type="text/javascript"></script> 
-     <script src="javascript/startController.js" type="text/javascript"></script> 
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io.connect();
+        socket.on('connect', function(data) { 
+        });
+    </script>
 </head>
 
 <body>
@@ -28,4 +31,9 @@
     <main ng-view></main>
     
 </body>
+    
+     <script src="javascript/app.js" type="text/javascript"></script> 
+     <script src="javascript/roomController.js" type="text/javascript"></script> 
+     <script src="javascript/startController.js" type="text/javascript"></script> 
+    
 </html>

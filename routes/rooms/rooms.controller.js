@@ -17,6 +17,17 @@
         });
     };
     
+    //gets all the rooms teh user is in
+    module.exports.getByUser = function(req, res) { 
+        Rooms.find({people : req.params.user }, function (err, post) {
+            if (err) {
+                console.error(err);
+                return res.status(500).send(err);
+             }
+            res.json(post);
+        });
+    };
+    
     //update chat array
     //Params:
         // _id
