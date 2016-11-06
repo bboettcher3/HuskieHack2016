@@ -35,6 +35,12 @@ html, body, main {
     animation-duration: 60s;
 	animation-iteration-count: infinite;
 }
+#topCol1 {
+    height: 25%;
+}
+#bottomCol1 {
+    height: 30%;
+}
 #column2 {
     width: 25%;
     height: 100%;
