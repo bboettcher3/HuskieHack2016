@@ -1,7 +1,36 @@
+
 html, body, main {
    height:100%;
-   background: url(../img/bck_sea.jpeg);
+   }
+@-webkit-keyframes test {
+  0% {
+    background-image: url(../img/bck_sea.jpeg);
+  }
+  20% {
+    background-image: url(../img/bck_sea.jpeg);
+  }
+  40% {
+    background-image: url(../img/bck_sea.jpeg);
+  }
+  60% {
+    background-image: url(../img/bck_sea.jpeg);
+  }
+  80% {
+    background-image: url(../img/bck_sea.jpeg);
+  }
+  100% {
+    background-image: url(../img/bck_sea.jpeg);
+  }
 }
+
+html {
+   float: down;
+  -webkit-animation-name: test;
+  -webkit-animation-duration: 10s;
+  -webkit-animation-iteration-count: infinite;
+}
+
+
 #topHeader {
 	color: black;
 	position: fixed;
@@ -11,33 +40,28 @@ html, body, main {
 }
  @keyframes example {
     0%   {background-color: #2E8B57;}
-    25%  {background-color: yellow;}
-    50%  {background-color: #1E90FF;}
-    100% {background-color: green;}
-	infinite;
+    20%  {background-color: yellow;}
+    40%  {background-color: #CDCDCD;}
+	65%  {background-color: #1E90FF;}
+	80% {background-color: #4c4c4c;}
+	
 }
+
+
+
 
 #column1 {
     width: 25%;
     height: 100%;
     float: left;
-	opacity: 0.6;
+	opacity: 0.3;
     border-right: 2px solid #4169E1;
     background-color: #B22222;
     animation-name: example;
-    animation-duration: 5s;
+    animation-duration: 12s;
+	animation-iteration-count: infinite;
 }
 #column2 {
-    width: 25%;
-    height: 100%;
-    float: left;
-	opacity: 0.5;
-    border-right: 2px solid #4169E1;
-	background-color: #B22222;
-    animation-name: example;
-    animation-duration: 5s;
-}
-#column3 {
     width: 25%;
     height: 100%;
     float: left;
@@ -45,21 +69,35 @@ html, body, main {
     border-right: 2px solid #4169E1;
 	background-color: #B22222;
     animation-name: example;
-    animation-duration: 5s;
+    animation-duration: 12s;
+	animation-iteration-count: infinite;
+}
+#column3 {
+    width: 25%;
+    height: 100%;
+    float: left;
+	opacity: 0.5;
+    border-right: 2px solid #4169E1;
+	background-color: #B22222;
+    animation-name: example;
+    animation-duration: 12s;
+	animation-iteration-count: infinite;
 }
 #column4 {
     width: 25%;
     height: 100%;
     float: left;
-	opacity: 0.3;
+	opacity: 0.6;
     border-right: 2px solid #4169E1;
 	background-color: #B22222;
     animation-name: example;
-    animation-duration: 5s;
+    animation-duration: 12s;
+	animation-iteration-count: infinite;
 }
 #textBoxChat {
     margin-left: 5%;
     float: left;
+	color:  #000000;
 }
 #uploadFile {
     float: left;
@@ -87,17 +125,17 @@ html, body, main {
     background-color: #B0E0E6;
     float: left;
     border: 2px;
-	opacity: 0.4;
+	opacity: 0.5;
 }
 .headers {
     font-family: futura;
     text-align-last: center;
     position:static;
-	color: #000000
+	color: #000000;
 }
 .message {
     list-style-type: none;
     padding-left: 5%;
     padding-top: 2%;
-	color: #483D8B;
+	color: #000000;
 }
