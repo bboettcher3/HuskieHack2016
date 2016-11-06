@@ -1,13 +1,13 @@
-<div class="row1"><span><h2 class="headers">Users Online</h2>
-    
-    <div id="currentUsers"><li ng-repeat="user in currentUsers">{{user}}</li></div>
-    
-    </span></div>
-<div class="row2"><span><h2 class="headers">SEARCH</h2>
-     
-    <img id="searchIcon" src="../img/searchIcon.png" />
-        <input type="text" id="searchChat" placeholder="search messages..." ng-model="query[queryBy]">
-        </span>
+<div id="rowHeader" style="height:13vh" class="row">
+    <div class="row1 col-sm-6 gradientHeader" style="text-align: center; height: 100%; border-right: 1px solid black;">
+            <span style="width : 100%; font-size: 140%; height: 50%;">Users Online</span>
+        <ul style="display: flex"><li ng-repeat="user in currentUsers" style="margin-right: 40px;">{{user}}</li></ul>
+    </div>
+    <div class="row2 col-sm-6 gradientHeader" style="text-align: center; height: 100%;">
+            <span style="width : 100%; font-size: 140%; height: 50%;">SEARCH</span>
+            <img id="searchIcon" src="../img/searchIcon.png" style="height: 20px; width: 20px;" />
+            <input type="text" id="searchChat" placeholder="search messages..." ng-model="query[queryBy]" style="border: none; background: white; color: black; height: 24px; width: 46vw;">      
+    </div>
 </div>
 <div id="column1"><h2 class="headers">Photos</h2>
     <div class="content">
@@ -30,9 +30,6 @@
     <div id="uploadFile">
         <form id =  "uploadForm"
                  enctype   =  "multipart/form-data"
-                 action    =  "/upload/file/"
-                 method    =  "post"
-                 ng-submit="upload()"
         >
         <input id="newFile" style="width: 70%; float: left;" type="file">
         <input style="width: 20%; display: inline-block;" type="submit" ng-click="sendFile()">
@@ -46,6 +43,6 @@
             <li class="message" ng-repeat="x in roomData.chats | filter: query | orderBy : 'time.getTime()'"><img ng-click="pinMessage($event, x)" class="rightArrows" src="../img/arrow-right.png"><span ng-class="setTextColor()">{{x.from}}</span> : {{x.message}}</li>
         </div>
     </div> 
-    <input type="text" id="textBoxChat" name="message" placeholder="type a message...">
-    <input type="submit" ng-click="sendMessage()">
+    <input type="text" id="textBoxChat" name="message" placeholder="type a message..." style="width: 90%;"><br><br>
+    <input type="submit" ng-click="sendMessage()" style="width: 90%; margin-left: 5%;">
 </div>

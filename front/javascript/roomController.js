@@ -59,6 +59,7 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location, 
             "file" : file
         }
         $http.post("/api/rooms/updateFiles", newFile).success(function(data){  
+            socket.emit('newFile', {file: newFile, room: $scope.roomID});
         }).error(function(err){
             //TODO
             alert(err);
@@ -96,6 +97,15 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location, 
         updateScroll();
     };
     
+    socket.on("updateFiles", function(data){
+        console.log("updateFiles");
+        console.log(data);
+        $scope.roomData.files.push({
+                                    "filename" : filename,
+                                    "file" : file
+                                    });
+        $scope.$apply();    
+    });
     socket.on("updateMessages", function(data){
         console.log("newMessage");
         console.log(data);

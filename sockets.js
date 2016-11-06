@@ -37,6 +37,12 @@ module.exports.listen = function(server){
             console.log(data);
             socket.broadcast.to(data.room).emit('updateMessages', {chat : data.chat.chat});
         });
+        socket.on('newFile', function(data) {
+            console.log('sending File');
+            console.log(data);
+            socket.broadcast.to(data.room).emit('updateFiles', {file : data.file});
+        });
+        
 
         socket.on('enteredRoom', function(data){
             //foreach loop used for two purposes
