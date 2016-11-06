@@ -92,6 +92,9 @@ html, body, main {
 	text-shadow: 1px 1px 1px #000000;
 	box-shadow: 10px 10px 10px #000000;
 }
+.rightArrows {
+    width: 5%;
+}
 .headers {
     text-align-last: center;
     position:static;

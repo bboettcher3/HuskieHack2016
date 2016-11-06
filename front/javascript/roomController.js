@@ -24,6 +24,17 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location, 
         document.getElementById("textBoxChat").value = "";
     }
     
+    $scope.pinMessage = function(event, x) {
+        if (x.pinned == "true") {
+            event.target.src="../img/arrow-right.png";
+            x.pinned = "false";
+            console.log("unpin");
+        } else {
+            event.target.src="../img/arrow-left.png";
+            x.pinned = "true";
+        }
+    }
+
     function checkIfURL(textLine) {      
         var regex = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/; 
              if(!regex.test(str)) {
@@ -32,6 +43,7 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location, 
                  console.log("works great!!!!!!")
              }
          }
+
     
     $scope.sendFile = function() {
         var file = document.getElementById("newFile").value;
@@ -85,6 +97,7 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location, 
     });
     socket.on("removeRoomUser", function(data) {
         var userIndex;
+        console.log(data);
         $scope.currentUsers.forEach(function(element, index){
             if (element.username == data.username) {
                 userIndex = index;
@@ -92,6 +105,7 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location, 
         });
 
         $scope.currentUsers.splice(userIndex, 1)
+        console.log($scope.currentUsers);
     });
     var colorText = ["red","blue","aqua","pink","violet","yellow","orange","green","gold","gray"];
    $scope.setTextColor = function(index){
