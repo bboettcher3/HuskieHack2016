@@ -18,11 +18,11 @@
     </div>
 </div>
 <div id="column4"><h2 class="headers">Chat</h2>
-    <div class="content">
+    <div id="messageBoard" class="content">
         <img id="searchIcon" src="../img/searchIcon.png" />
-        <input type="text" id="searchChat" placeholder="search messages...">
+        <input type="text" id="searchChat" placeholder="search messages..." ng-model="query[queryBy]">
         <hr />
-        <li class="message" ng-repeat="x in roomData.chats | orderBy : 'time.getTime()' | limitTo: 5">{{x.from}} : {{x.message}}</li>
+        <li class="message" ng-repeat="x in roomData.chats | filter: query | orderBy : 'time.getTime()'">{{x.from}} : {{x.message}}</li>
     </div> 
     <input type="text" id="textBoxChat" name="message" placeholder="type a message...">
     <input type="submit" ng-click="sendMessage()">

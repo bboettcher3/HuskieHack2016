@@ -1,6 +1,9 @@
 app.controller('RoomController', function($scope, $http, $rootScope, $location) {
 
 //    var socket = io.connect(); 
+    
+    $scope.query = {};
+    $scope.queryBy = '$';
     $scope.sendMessage = function() {
         var message = document.getElementById("textBoxChat").value;
         var newChat = {
@@ -11,17 +14,24 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location) 
                 "message" : message
             }
         }
+        updateScroll();
         $http.post("/api/rooms/updateChat", newChat).success(function(data){
             $scope.roomData.chats.push(newChat.chat);
             $scope.roomData.chats.forEach(function(element){element.time = new Date(element.time);})
-            console.log($scope.roomData.chats);
-            //$scope.roomData.chats.sort(function(a, b) { return b.time - a.time; });
         }).error(function(err){
             //TODO
             alert(err);
         });
         document.getElementById("textBoxChat").value = "";
     }
+    
+    updateScroll = function() {
+        setTimeout(function() {
+        var element = document.getElementById("messageBoard");
+        element.scrollTop = element.scrollHeight;
+        }, 200);
+    }
+    
     $scope.sendFile = function() {
         var message = document.getElementById("newFile").value;
         document.getElementById("newFile").value = "";
@@ -33,22 +43,12 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location) 
         $scope.sendMessage();
     }
     });
-    // function that filters messages
-    $("#searchChat").keypress(function(event) {
-        event.preventDefault();
-        var message = document.getElementById("searchChat").value;
-        for (var i = 0; i < $scope.roomData.chats.length; i++) {
-            for (message in chats[i].message) {
-                console.log(message);
-            }
-        }
-        //console.log("test");
-    });
     
     var init = function () {
         $http.get("/api/rooms").success(function(data){
             $scope.roomData = data[0];
         });
+        updateScroll();
         //$scope.roomData = {"_id":"581e517994e0802cf333c7b2","links":[],"files":[],"pictures":[],"chats":[{"message":"Hey Petr!","from":"bbottecher","time":3},{"message":"you there?","from":"bboettcher","time":2}],"people":["bboettcher","petr"]};
     };
     
