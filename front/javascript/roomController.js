@@ -35,15 +35,7 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location, 
         }
     }
 
-    function checkIfURL(textLine) {      
-        var regex = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/; 
-             if(!regex.test(str)) {
-                 console.log("Not a website");
-             } else {
-                 console.log("works great!!!!!!")
-             }
-         }
-
+    
     
     $scope.sendFile = function() {
         var file = document.getElementById("newFile").value;
@@ -55,13 +47,19 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location, 
             "file" : file
         }
         console.log(filename);
-        $http.post("/api/rooms/updateFiles", newFile).success(function(data){
-            
+        $http.post("/api/rooms/updateFiles", newFile).success(function(data){  
         }).error(function(err){
             //TODO
             alert(err);
         });
     }
+    
+    function checkIfURL(textLine) {      
+        var regex = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/; 
+             if(regex.test(str)) {
+                 $scope.sendFile();
+             }
+         }
     
     updateScroll = function() {
         setTimeout(function() {
