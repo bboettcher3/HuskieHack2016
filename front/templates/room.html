@@ -16,8 +16,14 @@
         </div>
     </div>
     <div id="uploadFile">
+        <form id =  "uploadForm"
+                 enctype   =  "multipart/form-data"
+                 action    =  "/upload/file/"
+                 method    =  "post"
+                 ng-submit="upload()"
+        >
         <input id="newFile" style="width: 70%; float: left;" type="file">
-        <input style="width: 20%; display: inline-block;"type="submit" ng-click="sendFile()">
+        <input style="width: 20%; display: inline-block;" type="submit" ng-click="sendFile()">
     </div>
 </div>
 <div id="column4"><h2 class="headers">Chat</h2>

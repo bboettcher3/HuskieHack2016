@@ -1,5 +1,6 @@
 app.controller('RoomController', function($scope, $http, $rootScope, $location, USER) {
 
+    $scope.roomID = USER.roomID;
     $scope.query = {};
     $scope.queryBy = '$';
     $scope.sendMessage = function() {
@@ -55,12 +56,11 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location, 
             "file" : file
         }
         console.log(filename);
-        $http.post("/api/rooms/updateFiles", newFile).success(function(data){
-            
-        }).error(function(err){
-            //TODO
-            alert(err);
-        });
+            //updates file only if file was loaded to server
+            $http.post("/api/rooms/updateFiles", newFile).success(function(data){
+            }).error(function(err){
+                alert(err);
+            });
     }
     
     updateScroll = function() {

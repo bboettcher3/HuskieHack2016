@@ -11,6 +11,9 @@ var bodyParser = require('body-parser'); //allows the use of req.body in POST re
 var server = require('http').createServer(app); //creates an HTTP server instance
 var http = require('http'); //Node.js module creates an instance of HTTP to make calls to Pi
 var io = require('./sockets').listen(server) //allows for sockets on the HTTP server instance
+ 
+var fs = require('fs'); //for File saving
+var multer = require('multer'); //for File uploading 
 
 var api = require('./routes/api'); //gets api logic from path
 
@@ -28,6 +31,26 @@ MongoDB.once('open', function() {
 //view engine setup
 app.set('views', './views'); //says where in root directory the find files (./views)
 app.set('view engine', 'ejs'); //says which engine being used (ejs)
+
+//----------------File Management-------------//
+//------multer upload ------/
+var filePath = "./front/files"
+var storage = multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null, filePath);
+  },
+  filename: function (req, file, callback) {
+    callback(null, file.originalname);
+  }
+});
+//var upload = multer({ storage : storage}).single('userPhoto');
+var upload = multer({storage: storage} );
+app.post('/upload/file', upload.single('uploadImage'), function(req,res){
+    console.log(req.body);
+    filePath = "./front/files/" + req.params.roomID;
+});
+
+
 
 app.use(logger('dev')); //debugs logs in terminal
 app.use(bodyParser.json()); //parses json and sets to body
