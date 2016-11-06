@@ -1,4 +1,4 @@
-app.controller('RoomController', function($scope, $http, $rootScope, $location) {
+app.controller('RoomController', function($scope, $http, $rootScope, $location, USER) {
 
     $scope.query = {};
     $scope.queryBy = '$';
