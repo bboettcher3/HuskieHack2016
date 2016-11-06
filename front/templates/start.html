@@ -10,7 +10,7 @@
         <div class="text-center">
     <span ng-show="pickedUser">
         <h1>Select Room</h1>
-        <button ng-repeat="room in rooms" type="button" class="btn btn-primary">{{room.roommates}}</button>
+        <button ng-repeat="room in rooms" type="button" class="btn btn-primary" ng-click="pickRoom(room)">{{room.roommates}}</button>
 
     </span>
     </div>
