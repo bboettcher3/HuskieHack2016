@@ -32,9 +32,10 @@ module.exports.listen = function(server){
             socket.leave(room); 
         })
 
-        socket.on('send', function(data) {
+        socket.on('newMessage', function(data) {
             console.log('sending message');
-            io.socket.in(data.room).emit('message', data);
+            console.log(data);
+            socket.broadcast.to(data.room).emit('updateMessages', {chat : data.chat.chat});
         });
 
         socket.on('enteredRoom', function(data){

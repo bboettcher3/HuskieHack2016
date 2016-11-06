@@ -9,16 +9,17 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location, 
             "_id" : $scope.roomData._id,
             "chat" : {
                 "time" : new Date(),
-                "from" : "petr",
+                "from" : USER.username,
                 "message" : message,
                 "pinned" : "false"
             }
         }
-        updateScroll();
         /*checkifURL(message);*/
         $http.post("/api/rooms/updateChat", newChat).success(function(data){
+            socket.emit('newMessage', {chat: newChat, room: $scope.roomID});
             $scope.roomData.chats.push(newChat.chat);
-            $scope.roomData.chats.forEach(function(element){element.time = new Date(element.time);})
+            $scope.roomData.chats.forEach(function(element){element.time = new Date(element.time);})            
+            updateScroll();
         }).error(function(err){
             //TODO
             alert(err);
@@ -116,6 +117,15 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location, 
         socket.emit("enteredRoom", {room: USER.roomID, username : USER.username});
         updateScroll();
     };
+    
+    socket.on("updateMessages", function(data){
+        console.log("newMessage");
+        console.log(data);
+        $scope.roomData.chats.push(data.chat);
+        $scope.roomData.chats.forEach(function(element){element.time = new Date(element.time);})    
+        updateScroll();               
+        $scope.$apply();    
+    });
     
     $scope.currentUsers = []; //initial
     socket.on("updateRoomUser", function(data) {
