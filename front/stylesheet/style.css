@@ -81,6 +81,12 @@ html, body, main {
 	background-color: azure;
 
 }
+#fileBoard {
+    overflow-y: scroll;
+    max-height: 80%;
+	background-color: azure;
+
+}
 .content {
     margin: 0% 5% 5% 5%;
     width: 90%;
