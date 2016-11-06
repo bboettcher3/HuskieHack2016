@@ -5,9 +5,8 @@
         <button ng-repeat="user in users" ng-click="pickUser(user)">{{user.username}}</button>
     </span>
     <span ng-show="pickedUser">
-        <h1>Select Room</h1>
+        <h2>Select Room</h2>
         <button ng-repeat="room in rooms" ng-click="pickRoom(room)">{{room.roommates}}</button>
-
     </span>
     
 </div>
