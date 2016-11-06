@@ -1,4 +1,4 @@
-<div id="rowHeader" style="height:13vh" class="row">
+    <div id="rowHeader" style="height:13vh" class="row">
     <div class="row1 col-sm-6 gradientHeader" style="text-align: center; height: 100%; border-right: 1px solid black;">
             <span style="width : 100%; font-size: 140%; height: 50%;">Users Online</span>
         <ul style="display: flex"><li ng-repeat="user in currentUsers" style="margin-right: 40px;">{{user}}</li></ul>
@@ -11,7 +11,7 @@
 </div>
 <div id="column1"><h2 class="headers">Photos</h2>
     <div id="topCol1" class="content">
-        
+        <a ng-repeat="photo in photos" ng-href="{{photo.link}}"><img style="max-height:50px; margin-right: 20px" ng-src="{{photo.link}}"/></a>
     </div> 
     <div id="bottomCol1" class="content"><h2 class="headers">Links</h2>
     <li ng-repeat="l in roomData.links">{{l}}</li>

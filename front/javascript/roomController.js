@@ -91,7 +91,8 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location, 
     
     var init = function () {
         $http.get("/api/rooms").success(function(data){
-            $scope.roomData = data[0];
+            $scope.roomData = data[0];            
+            $scope.photos = $scope.roomData.pictures;
         });
         socket.emit("enteredRoom", {room: USER.roomID, username : USER.username});
         updateScroll();

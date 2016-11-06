@@ -88,7 +88,10 @@ module.exports.listen = function(server){
             socket.broadcast.to(_users[userIndex].roomID).emit('removeRoomUser', {username: _users[userIndex].username});
              _users.splice(userIndex, 1);
              
-             socket.leave(_users[userIndex].roomID);
+             try {socket.leave(_users[userIndex].roomID);
+                 }catch(e) {
+                     console.log("roomID Not Found");
+                     }
             
             console.log("disconnect" + socket.id);         
         });
