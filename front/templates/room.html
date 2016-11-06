@@ -11,7 +11,9 @@
 </div>
 <div id="column3"><h2 class="headers">Files</h2>
     <div class="content">
-        
+        <div id="fileBoard">
+            <li class="message" ng-repeat="x in roomData.chats | filter: query | orderBy : 'time.getTime()'">{{x.from}} : {{x.message}}</li>
+        </div>
     </div>
     <div id="uploadFile">
         <input id="newFile" style="width: 70%; float: left;" type="file">
@@ -21,9 +23,11 @@
 <div id="column4"><h2 class="headers">Chat</h2>
     <div class="content">
         <img id="searchIcon" src="../img/searchIcon.png" />
-        <input type="text" id="searchChat" placeholder="search messages...">
+        <input type="text" id="searchChat" placeholder="search messages..." ng-model="query[queryBy]">
         <hr />
-        <li class="message" ng-repeat="x in roomData.chats | orderBy : 'time.getTime()' | limitTo: 5">{{x.from}} : {{x.message}}</li>
+        <div id="messageBoard">
+            <li class="message" ng-repeat="x in roomData.chats | filter: query | orderBy : 'time.getTime()'">{{x.from}} : {{x.message}}</li>
+        </div>
     </div> 
     <input type="text" id="textBoxChat" name="message" placeholder="type a message...">
     <input type="submit" ng-click="sendMessage()">

@@ -9,6 +9,7 @@
   router.get('/', controller.getAll);
   router.get('/byUser/:user', controller.getByUser);
   router.post('/updateChat', controller.updateChat);
+  router.post('/updateFiles', controller.updateFiles);
 //  router.post('/:id/:count', controller.update);
 //  router.delete('/:id', controller.delete);
   

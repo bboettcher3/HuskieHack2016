@@ -1,5 +1,7 @@
-app.controller('RoomController', function($scope, $http, $rootScope, $location, USER) {
+app.controller('RoomController', function($scope, $http, $rootScope, $location) {
 
+    $scope.query = {};
+    $scope.queryBy = '$';
     $scope.sendMessage = function() {
         var message = document.getElementById("textBoxChat").value;
         var newChat = {
@@ -10,21 +12,42 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location, 
                 "message" : message
             }
         }
+        updateScroll();
         $http.post("/api/rooms/updateChat", newChat).success(function(data){
             $scope.roomData.chats.push(newChat.chat);
             $scope.roomData.chats.forEach(function(element){element.time = new Date(element.time);})
-            console.log($scope.roomData.chats);
-            //$scope.roomData.chats.sort(function(a, b) { return b.time - a.time; });
         }).error(function(err){
             //TODO
             alert(err);
         });
         document.getElementById("textBoxChat").value = "";
     }
+    
     $scope.sendFile = function() {
-        var message = document.getElementById("newFile").value;
+        var file = document.getElementById("newFile").value;
+        var filename = file.replace(/^.*[\\\/]/, '');
         document.getElementById("newFile").value = "";
+        var newFile = {
+            "_id" : $scope.roomData._id,
+            "filename" : filename,
+            "file" : file
+        }
+        console.log(filename);
+        $http.post("/api/rooms/updateFiles", newFile).success(function(data){
+            $scope.roomData.files.push(newFile);
+        }).error(function(err){
+            //TODO
+            alert(err);
+        });
     }
+    
+    updateScroll = function() {
+        setTimeout(function() {
+        var element = document.getElementById("messageBoard");
+        element.scrollTop = element.scrollHeight;
+        }, 200);
+    }
+    
     // function calls submit if enter is hit while text is being entered
     $("#textBoxChat").keypress(function(event) {
     if (event.which == 13) {
@@ -32,24 +55,13 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location, 
         $scope.sendMessage();
     }
     });
-    // function that filters messages
-    $("#searchChat").keypress(function(event) {
-        event.preventDefault();
-        var message = document.getElementById("searchChat").value;
-        for (var i = 0; i < $scope.roomData.chats.length; i++) {
-            for (message in chats[i].message) {
-                console.log(message);
-            }
-        }
-        //console.log("test");
-    });
     
     var init = function () {
         $http.get("/api/rooms").success(function(data){
             $scope.roomData = data[0];
         });
-          
         socket.emit("enteredRoom", {room: USER.roomID, username : USER.username});
+        updateScroll();
     };
     
     $scope.currentUsers = []; //initial

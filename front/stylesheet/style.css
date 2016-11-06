@@ -1,61 +1,60 @@
 html, body, main {
    height:100%;
-   background: url(../img/bck_sea.jpeg);
-}
-#topHeader {
-	color: black;
-	position: fixed;
-    bottom: 10;
-    right: 10%;
-    width: 10%;
-}
+
+     
+   }
  @keyframes example {
-    0%   {background-color: #2E8B57;}
-    25%  {background-color: yellow;}
-    50%  {background-color: #1E90FF;}
-    100% {background-color: green;}
-	infinite;
+    10%   {background-color: #2E8B57;}
+    30%  {background-color: #9ACD32;}
+    50%  {background-color: #CDCDCD;}
+	75%  {background-color: #1E90FF;}
+	95% {background-color: #4c4c4c;}
+	
 }
 
 #column1 {
     width: 25%;
     height: 100%;
     float: left;
-	opacity: 0.6;
+	opacity: 0.5;
     border-right: 2px solid #4169E1;
     background-color: #B22222;
     animation-name: example;
-    animation-duration: 5s;
+    animation-duration: 25s;
+	animation-iteration-count: infinite;
 }
 #column2 {
     width: 25%;
     height: 100%;
     float: left;
-	opacity: 0.5;
+	opacity: 0.6;
     border-right: 2px solid #4169E1;
 	background-color: #B22222;
     animation-name: example;
-    animation-duration: 5s;
+    animation-duration: 25s;
+	animation-iteration-count: infinite;
 }
 #column3 {
     width: 25%;
     height: 100%;
     float: left;
-	opacity: 0.4;
+	opacity: 0.7;
     border-right: 2px solid #4169E1;
 	background-color: #B22222;
     animation-name: example;
-    animation-duration: 5s;
+    animation-duration: 25s;
+	animation-iteration-count: infinite;
 }
 #column4 {
     width: 25%;
     height: 100%;
     float: left;
-	opacity: 0.3;
+	opacity: 0.9;
     border-right: 2px solid #4169E1;
 	background-color: #B22222;
     animation-name: example;
-    animation-duration: 5s;
+    animation-duration: 25s;
+	animation-iteration-count: infinite;
 }
 #textBoxChat {
     margin-left: 5%;
@@ -76,24 +75,33 @@ html, body, main {
     width: 10%;
     float: left;
 }
+#messageBoard {
+    overflow-y: scroll;
+    max-height: 80%;
+	background-color: azure;
+
+}
 .content {
     margin: 0% 5% 5% 5%;
     width: 90%;
     height: 60%;
-    background-color: #B0E0E6;
     float: left;
     border: 2px;
-	opacity: 0.4;
+	text-shadow: 1px 1px 1px #000000;
+	box-shadow: 10px 10px 10px #000000;
 }
 .headers {
-    font-family: futura;
     text-align-last: center;
     position:static;
-	color: #000000
+	font-family: 'Verdana';
+    opacity: 1;
+	text-shadow: 1px 1px 1px #000000;
+	box-shadow: -5px 5px 5px #000000;
+	background-color: #FFFFFF;
 }
 .message {
     list-style-type: none;
     padding-left: 5%;
     padding-top: 2%;
-	color: #483D8B;
+	color: #000000;
 }
