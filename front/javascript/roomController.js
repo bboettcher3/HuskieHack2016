@@ -91,13 +91,11 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location, 
        $scope.currentUsers = data.users;
     });
     socket.on("addRoomUser", function(data) {
-        console.log(data);
         $scope.currentUsers.push(data.username);
         $scope.$apply();    
     });
     socket.on("removeRoomUser", function(data) {
         var userIndex;
-        console.log(data);
         $scope.currentUsers.forEach(function(element, index){
             if (element.username == data.username) {
                 userIndex = index;
@@ -105,7 +103,7 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location, 
         });
 
         $scope.currentUsers.splice(userIndex, 1)
-        console.log($scope.currentUsers);
+        $scope.$apply();
     });
     var colorText = ["red","blue","aqua","pink","violet","yellow","orange","green","gold","gray"];
    $scope.setTextColor = function(index){

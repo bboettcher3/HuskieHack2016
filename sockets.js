@@ -76,12 +76,12 @@ module.exports.listen = function(server){
                 }
             });
              console.log("index: " + userIndex);
-             console.log("room: " +_users[userIndex].room);
+             console.log("room: " + _users[userIndex].roomID);
              
-            socket.broadcast.to(_users[userIndex].room).emit('removeRoomUser', {username: _users[userIndex].username});
+            socket.broadcast.to(_users[userIndex].roomID).emit('removeRoomUser', {username: _users[userIndex].username});
              _users.splice(userIndex, 1);
              
-             socket.leave(_users[userIndex].room);
+             socket.leave(_users[userIndex].roomID);
             
             console.log("disconnect" + socket.id);         
         });
