@@ -4,11 +4,11 @@ html, body, main {
 
 }
  @keyframes example {
-    0%   {background-color: #2E8B57;}
-    20%  {background-color: #9ACD32;}
-    40%  {background-color: #CDCDCD;}
-	65%  {background-color: #1E90FF;}
-	80% {background-color: #4c4c4c;}
+    10%   {background-color: #2E8B57;}
+    30%  {background-color: #9ACD32;}
+    50%  {background-color: #CDCDCD;}
+	75%  {background-color: #1E90FF;}
+	95% {background-color: #4c4c4c;}
 	
 }
 
@@ -85,16 +85,15 @@ html, body, main {
     margin: 0% 5% 5% 5%;
     width: 90%;
     height: 60%;
-    background-color: #B0E0E6;
     float: left;
     border: 2px;
-	opacity: 0.5;
+	text-shadow: 1px 1px 1px #000000;
 }
 .headers {
     font-family: futura;
     text-align-last: center;
     position:static;
-	color: #000000;
+
 }
 .message {
     list-style-type: none;
