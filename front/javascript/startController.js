@@ -1,73 +1,49 @@
-app.controller('StartController', function($scope, $http, $rootScope, $location) {
-
-//    var socket = io.connect();
-
+app.controller('StartController', function($scope, $http, $rootScope, $location, USER) {
+    
     $scope.pickUser = function(user) {
-        $scope.pickedUser = user;
-        console.log(user);
+        $scope.pickedUser = user;        
+        USER.username = $scope.pickedUser.username;
+
         $http.get("/api/rooms/byUser/"+user.username).success(function(data){
-            console.log(data);
-            $scope.rooms = data; //data == array 
-            parseRoomName(data, $scope.pickedUser.username);
-            
+            $scope.rooms = data; //data == array or rooms
+            parseRoomName(data, $scope.pickedUser.username);            
             
         });
     }
     
+    $scope.pickRoom = function(room) {
+        socket.emit('subscribe', room._id);
+        USER.roomID = room._id;
+        $location.path('/room');
+    }
     
+    
+    //used to get people in room display that aren't the person choosing
     function parseRoomName(room, username) {
         
         room.forEach(function(element){
             element.people.forEach(function(elementPeople){
                 if (elementPeople != username) {    
                     if (!element.roommates) {
-                        //need to define roomates
+                        //need to define roomates for first time
                         element.roommates = elementPeople;
                     } else {
                         element.roommates += ", " + elementPeople;
                     }
                 }
-            })
-            
-        })
-        
-        /*for(i = 0; i < room.length; i++) {
-            break;
-            console.log("room loop " + i);
-            var roomVec = room[i].people; //grabs people array
-            console.log(roomVec);
-            for(j = 0; j < roomVec.length; j++) {
-                            console.log("peo loop " + j);
-                            console.log(roomVec[j]);
-
-                if(roomVect[j] != username) {
-                    if(room[i].roommates) {
-                        
-                    
-                    room[i].roommates += roomVect[j] + " ";
-                    } else {
-                        room[i].roommates = roomVect[j] + " ";
-                    }
-                }
-            }
-        } console.log(room);*/
+            }); //end of people loop           
+        });  //end of room loop     
+       
     }
-        
-        
-                //room[i].roommates += check + " ";
-            
     
         
     var init = function (scope) {
         $http.get("/api/users").success(function(data){
-            console.log(data);
         
             $scope.users = data;
         });
     };
     
-   $scope.scopeTest = "ScopeTest"    
   
-    //$scope.pickedUser.username == petr
 init();
 });

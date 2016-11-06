@@ -1,6 +1,5 @@
-app.controller('RoomController', function($scope, $http, $rootScope, $location) {
+app.controller('RoomController', function($scope, $http, $rootScope, $location, USER) {
 
-//    var socket = io.connect(); 
     $scope.sendMessage = function() {
         var message = document.getElementById("textBoxChat").value;
         var newChat = {
