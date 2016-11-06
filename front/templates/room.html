@@ -3,9 +3,6 @@
     
     <div id="currentUsers">{{currentUsers}}</div>
     
-    
-    
-    
     </span></div>
 <div class="row2"><span><h2 class="headers">SEARCH</h2>
      
@@ -14,7 +11,11 @@
         </span>
 </div>
 <div id="column1"><h2 class="headers">Photos</h2>
-    <div class="content">
+    <div id="topCol1" class="content">
+        
+    </div> 
+    <div id="bottomCol1" class="content"><h2 class="headers">Links</h2>
+    <li ng-repeat="l in roomData.links">{{l}}</li>
         
     </div>  
 </div>

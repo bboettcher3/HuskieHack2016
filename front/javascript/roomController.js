@@ -14,7 +14,7 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location, 
                 "pinned" : "false"
             }
         }
-        /*checkifURL(message);*/
+
         $http.post("/api/rooms/updateChat", newChat).success(function(data){
             socket.emit('newMessage', {chat: newChat, room: $scope.roomID});
             $scope.roomData.chats.push(newChat.chat);
