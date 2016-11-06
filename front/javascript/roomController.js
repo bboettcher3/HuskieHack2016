@@ -34,7 +34,7 @@ app.controller('RoomController', function($scope, $http, $rootScope, $location) 
         }
         console.log(filename);
         $http.post("/api/rooms/updateFiles", newFile).success(function(data){
-            $scope.roomData.files.push(newFile);
+            
         }).error(function(err){
             //TODO
             alert(err);
