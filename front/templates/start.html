@@ -1,12 +1,16 @@
-<div>
+<div class="Start">
+    
     <span ng-show="!pickedUser">
-        <h1>Who are you?</h1>
+        <h1 class="text-center"> Welcome to our Page </h1>
+        <h2>Who are you?</h2>
         <button ng-repeat="user in users" ng-click="pickUser(user)">{{user.username}}</button>
     </span>
+    <div class="pickRoom">
     <span ng-show="pickedUser">
-        <h2>Select Room</h2>
+        <h1>Select Room</h1>
+        <!--<button type="button" class="btn brn-link"></button>-->
         <button ng-repeat="room in rooms">{{room.roommates}}</button>
 
     </span>
-    
+    </div>
 </div>
