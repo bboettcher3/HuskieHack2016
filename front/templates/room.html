@@ -2,7 +2,7 @@
 <hr />
 <div id="column1"><h2 class="headers">Project Flow</h2>
     <div class="content">
-        <!-- ADD FLOWPOINT -->
+        
     </div>  
 </div>
 <div id="column2"><h2 class="headers">Pinned Messages</h2>
@@ -12,11 +12,15 @@
 </div>
 <div id="column3"><h2 class="headers">Files</h2>
     <div class="content">
-
-    </div>  
+        
+    </div>
+    <h4 style="margin-left: 5%;">Upload a file: </h4>
+    <input  style="margin-left: 5%; float: left;"type="file">
 </div>
 <div id="column4"><h2 class="headers">Chat</h2>
     <div class="content">
         <li class="message" ng-repeat="x in roomData.chats | orderBy : 'time'">{{x.from}} : {{x.message}}</li>
     </div> 
+    <input type="text" id="textBoxChat" name="message" placeholder="type a message...">
+    <input type="submit" ng-click="sendMessage()">
 </div>
