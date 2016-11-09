@@ -19,7 +19,7 @@ var api = require('./routes/api'); //gets api logic from path
 
 //add for Mongo support
 var mongoose = require('mongoose');                         
-var mongoURI = "mongodb://10.204.0.189:27017/HuskieHack2016";
+var mongoURI = "mongodb://localhost:27017/HuskieHack2016";
 var MongoDB = mongoose.connect(mongoURI).connection;
 MongoDB.on('error', function(err) { console.log(err.message); });
 MongoDB.once('open', function() {
